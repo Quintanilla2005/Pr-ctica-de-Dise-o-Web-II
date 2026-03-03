@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reloj Espejo</title>
+    <link rel="stylesheet" href="espejo.css" />
+</head>
+<body>
+    <main class="container">
+        <h1>Reloj Espejo</h1>
+
+        <section class="card">
+            <p class="lead">Introduce una hora en formato <code>HH:MM</code> (reloj 12 horas) y pulsa <strong>Calcular</strong> para ver la hora "real" espejo.</p>
+
+            <div class="controls">
+                <label for="horaInput">Hora</label>
+                <input id="horaInput" type="text" placeholder="ej. 01:45" maxlength="5" aria-label="hora en formato HH:MM" />
+                <button id="calcBtn">Calcular</button>
+                <button id="copyBtn">Copiar resultado</button>
+            </div>
+
+            <div class="display">
+                <div class="clock" id="clockInputDisplay">--:--</div>
+                <div class="arrow">→</div>
+                <div class="clock result" id="clockResult">--:--</div>
+            </div>
+
+            <div class="examples">
+                <span>Ejemplos:</span>
+                <button class="example">01:45</button>
+                <button class="example">10:00</button>
+                <button class="example">03:25</button>
+                <button class="example">11:11</button>
+            </div>
+
+            <details class="docs">
+                <summary>Documentación y explicación</summary>
+                <p>La función principal <code>RelojEspejo(tiempo)</code> recibe un string con el formato <code>HH:MM</code> y devuelve la hora "real" espejo en el mismo formato.</p>
+                <p>Reglas usadas:</p>
+                <ul>
+                    <li>Si los minutos son 0: la hora real es 12 - hora, minutos 00.</li>
+                    <li>Si los minutos no son 0: la hora real es 11 - hora, minutos = 60 - minutos.</li>
+                </ul>
+                <p>Se incluye validación simple en la interfaz (hora 0-12, minutos 0-59) y botones de ejemplo para probar rápidamente.</p>
+            </details>
+        </section>
+
+        <footer class="footer">Abre este archivo en el navegador o sirve la carpeta con un servidor estático.</footer>
+    </main>
+
+    <script src="espejo.js"></script>
+</body>
+</html>
